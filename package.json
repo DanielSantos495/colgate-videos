@@ -1,0 +1,17 @@
+{
+  "name": "video-loop",
+  "version": "1.0.0",
+  "description": "Raspberry pi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Raspberry",
+    "pi",
+    "Javascript",
+    "Node"
+  ],
+  "author": "La Banda",
+  "license": "ISC"
+}
