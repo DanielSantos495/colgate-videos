@@ -23,7 +23,7 @@
 
 // robot.start()
 
-// const Gpio = require('onoff').Gpio;
+const Gpio = require('onoff').Gpio;
 // const sensor = new Gpio(7, 'in')
 // const sensor2 = new Gpio(7, 'in')
 // const sensor3 = new Gpio(7, 'in')
@@ -59,55 +59,57 @@
 
 // });
 
-// var LED = new Gpio(18, 'out');
+var LED = new Gpio(11, 'out');
 
-// var ledInterval = setInterval(sayHello, 300);
+var ledInterval = setInterval(sayHello, 300);
 
-// function sayHello () {
-//   if (LED.readSync() === 0) {
-//     LED.writeSync(1); //se enciende
-//   } else {
-//     LED.writeSync(0); //se apaga
-//   }
-// }
+function sayHello () {
+  if (LED.readSync() === 0) {
+    LED.writeSync(1); //se enciende
+  } else {
+    LED.writeSync(0); //se apaga
+  }
+}
 
-const { Board, Sensor } = require("johnny-five")
-const raspi = require('raspi-io');
+sayHello()
 
-const board = new Board();
+// const { Board, Sensor } = require("johnny-five")
+// const raspi = require('raspi-io');
 
-board.on("ready", () => {
-  // Create a new generic sensor instance for
-  // a sensor connected to an analog (ADC) pin
-  const sensor = new Sensor({
-    pin: 7,
-    type: "digital"
-  });
-  const sensor2 = new Sensor({
-    pin: 29,
-    type: "digital"
-  });
-  const sensor3 = new Sensor({
-    pin: 31,
-    type: "digital"
-  });
+// const board = new Board();
 
-  // When the sensor value changes, log the value
-  sensor.on("change", value => {
-    console.log("Sensor: ");
-    console.log("  value  : ", sensor.value);
-    console.log("-----------------");
-  });
+// board.on("ready", () => {
+//   // Create a new generic sensor instance for
+//   // a sensor connected to an analog (ADC) pin
+//   const sensor = new Sensor({
+//     pin: 7,
+//     type: "digital"
+//   });
+//   const sensor2 = new Sensor({
+//     pin: 29,
+//     type: "digital"
+//   });
+//   const sensor3 = new Sensor({
+//     pin: 31,
+//     type: "digital"
+//   });
 
-  sensor2.on("change", value => {
-    console.log("Sensor: ");
-    console.log("  value  : ", sensor2.value);
-    console.log("-----------------");
-  });
+//   // When the sensor value changes, log the value
+//   sensor.on("change", value => {
+//     console.log("Sensor: ");
+//     console.log("  value  : ", sensor.value);
+//     console.log("-----------------");
+//   });
 
-  sensor3.on("change", value => {
-    console.log("Sensor: ");
-    console.log("  value  : ", sensor3.value);
-    console.log("-----------------");
-  });
-});
+//   sensor2.on("change", value => {
+//     console.log("Sensor: ");
+//     console.log("  value  : ", sensor2.value);
+//     console.log("-----------------");
+//   });
+
+//   sensor3.on("change", value => {
+//     console.log("Sensor: ");
+//     console.log("  value  : ", sensor3.value);
+//     console.log("-----------------");
+//   });
+// });
