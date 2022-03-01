@@ -20,6 +20,7 @@
     "cylon-i2c": "^0.26.1",
     "cylon-raspi": "^0.20.1",
     "johnny-five": "^2.1.0",
-    "onoff": "^6.0.3"
+    "onoff": "^6.0.3",
+    "raspi-io": "^11.0.0"
   }
 }
