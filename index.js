@@ -23,23 +23,80 @@
 
 // robot.start()
 
-const Gpio = require('onoff').Gpio;
-const sensor = new Gpio(7, 'in')
+// const Gpio = require('onoff').Gpio;
+// const sensor = new Gpio(7, 'in')
+// const sensor2 = new Gpio(7, 'in')
+// const sensor3 = new Gpio(7, 'in')
 
-console.log(sensor)
-console.log(sensor.watch())
-console.log(sensor.watch)
+// console.log(sensor)
+// console.log(sensor.watch())
+// console.log(sensor.watch)
 
-sensor.watch((err, value) => {
-  if (err) {
-    throw err;
-  }
+// sensor.watch((err, value) => {
+//   if (err) {
+//     throw err;
+//   }
 
-  console.log('test', value)
+//   console.log('test', value)
 
-});
+// })
 
-// process.on('SIGINT', _ => {
-//   led.unexport();
-//   button.unexport();
+// sensor2.watch((err, value) => {
+//   if (err) {
+//     throw err;
+//   }
+
+//   console.log('test', value)
+
 // });
+
+// sensor3.watch((err, value) => {
+//   if (err) {
+//     throw err;
+//   }
+
+//   console.log('test', value)
+
+// });
+
+// var LED = new Gpio(18, 'out');
+
+// var ledInterval = setInterval(sayHello, 300);
+
+// function sayHello () {
+//   if (LED.readSync() === 0) {
+//     LED.writeSync(1); //se enciende
+//   } else {
+//     LED.writeSync(0); //se apaga
+//   }
+// }
+
+const { Board, Sensor } = require("johnny-five");
+const board = new Board();
+
+board.on("ready", () => {
+  // Create a new generic sensor instance for
+  // a sensor connected to an analog (ADC) pin
+  const sensor = new Sensor("7");
+  const sensor2 = new Sensor("29");
+  const sensor3 = new Sensor("31");
+
+  // When the sensor value changes, log the value
+  sensor.on("change", value => {
+    console.log("Sensor: ");
+    console.log("  value  : ", sensor.value);
+    console.log("-----------------");
+  });
+
+  sensor2.on("change", value => {
+    console.log("Sensor: ");
+    console.log("  value  : ", sensor2.value);
+    console.log("-----------------");
+  });
+
+  sensor3.on("change", value => {
+    console.log("Sensor: ");
+    console.log("  value  : ", sensor3.value);
+    console.log("-----------------");
+  });
+});
