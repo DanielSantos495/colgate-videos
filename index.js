@@ -71,15 +71,28 @@
 //   }
 // }
 
-const { Board, Sensor } = require("johnny-five");
-const board = new Board();
+const { Board, Sensor } = require("johnny-five")
+const raspi = require('raspi-io');
+
+const board = new Board({
+  io: new raspi()
+});
 
 board.on("ready", () => {
   // Create a new generic sensor instance for
   // a sensor connected to an analog (ADC) pin
-  const sensor = new Sensor("7");
-  const sensor2 = new Sensor("29");
-  const sensor3 = new Sensor("31");
+  const sensor = new Sensor({
+    pin: 7,
+    type: "digital"
+  });
+  const sensor2 = new Sensor({
+    pin: 29,
+    type: "digital"
+  });
+  const sensor3 = new Sensor({
+    pin: 31,
+    type: "digital"
+  });
 
   // When the sensor value changes, log the value
   sensor.on("change", value => {
