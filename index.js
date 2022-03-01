@@ -24,7 +24,7 @@
 // robot.start()
 
 const Gpio = require('onoff').Gpio;
-const sensor = new Gpio(7, 'in', 'both')
+const sensor = new Gpio(7, 'in')
 
 console.log(sensor)
 console.log(sensor.watch())
